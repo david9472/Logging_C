@@ -10,7 +10,7 @@ To log a function enter/leave, just use the provided macros FUNC_ENTER and FUNC_
 
 ---
 
-To make sure variables or condition are as expected, the provided ASSERT and EXPECT macros can be used. ASSERT immeditly terminates the application if an condition does not result in true, whereas EXPECT simply prints an error message onto the terminal and writes a new log-file entry.
+To make sure variables or condition are as expected, the provided ASSERT and EXPECT macros can be used. ASSERT prints an error message onto the terminal and writes a new log-file entry, afterwards the application immediatly terminates if a condition does not result in true, whereas EXPECT only prints an error message onto the terminal and writes a new log-file entry. Here the application does not terminate. 
 
 ---
 
