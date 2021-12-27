@@ -1,6 +1,4 @@
-//
-// Created by David Frühwirth on 27.12.21.
-//
+
 //Includes
 #include "logging.h"
 #include <stdio.h>
