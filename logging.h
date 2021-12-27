@@ -1,6 +1,3 @@
-//
-// Created by David Frühwirth on 27.12.21.
-//
 
 #ifndef LOGGING_H
 #define LOGGING_H
