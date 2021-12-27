@@ -19,23 +19,45 @@ Because log files are not wanted in every situation. For example, due to poor pe
 ### Example:
 main.c
 ```C
-#ifdef DEBUG_MODE //logging should only be active in debug-mode
+#include <stdio.h>
+
 #define LOGGING
 #include "logging.h"
-#endif
 
+void FaultyIncrease(int number);
 
-void foo()
+int main()
+{
+  printf("Hello, World!\n");
+  int b = 6;
+  FaultyIncrease(b);
+  EXPECT(b > 6)
+
+  printf("Goodbye, World!\n");
+  return 0;
+}
+
+void FaultyIncrease(int number)
 {
   FUNC_ENTER
-
-  int someValue = 5;
-
-  ASSERT(someValue > 0)
-  
-  //funcion foo does what foo function do
-
+  number += 1;
   FUNC_LEAVE
 }
 ```
+
+Terminal output:
+```
+Hello, World!
+EXPECT did not result in true!
+Goodbye, World!
+
+Process finished with exit code 0
+```
+Logfile:
+```
+22:13:08.481 [  ENTERING]: Function <FaultyIncrease> at line <21>
+22:13:08.481 [   LEAVING]: Function <FaultyIncrease> at line <23>
+22:13:08.481 [    EXPECT]: EXPECT did not result in true! FILE: </some_private_path/main.c> FUNC: <main> LINE: <13>
+```
+
 
